@@ -3,8 +3,8 @@ import json
 import pickle
 import numpy as np
 
-import nitk
-from nitk.stem import WordNetLemmatizer
+import nltk
+from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
@@ -50,3 +50,13 @@ training = np.array(training)
 trainx = list(training[:,0])
 trainy = list(training[:,1])
 
+model = Sequential() 
+model.add(Dense(128, input_shape=(len(train_x[0])1), activation='relu')) 
+model.add(Dropout(0.5)) 
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(len(train_y[8]), activation='softmax')) 
+sgd = SGD( =0.01, decay=le-6, momentum=0.9, nesterov=True) 
+model.compile(loss=icategorical_crossentropy', optimizer=sgd, metric—=['accuracy']) 
+model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1) 
+model.save('chatbot model.model') print("Done")
